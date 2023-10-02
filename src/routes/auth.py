@@ -53,7 +53,9 @@ def login():
         return jsonify({"message": "Invalid credentials"}), 401
     user_data = response.json()
     id_token = user_data['idToken']
-    return jsonify({"id_token": id_token}), 200
+    decoded_token = auth.verify_id_token(id_token)
+    role = decoded_token['role']
+    return jsonify({"id_token": id_token, "role": role}), 200
 
 @auth_bp.route('/list')
 def read():
