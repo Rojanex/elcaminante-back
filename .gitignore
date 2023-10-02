@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 firebase.json
+caminante-db-firebase.json
