@@ -14,7 +14,7 @@ def get_db():
     return firestore.client()
 
 @auth_bp.route('/add', methods=['POST'])
-@role_required('client')
+@role_required('admin')
 def create():
     try:
         id = uuid.uuid4()
